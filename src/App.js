@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+
 
 // export default function App(){
 //     return(
@@ -10,13 +10,17 @@ import './App.css';
 
 // }
 import React, { Component } from 'react'
+import Navbar from './components/Navbar';
+import News from './components/News';
+
 
 export default class App extends Component {
     name = 'nizam';
     render() {
         return (
             <div>
-                <h1>This is class based component {this.name}</h1>
+                <Navbar/>
+                <News/>
             </div>
         )
     }
