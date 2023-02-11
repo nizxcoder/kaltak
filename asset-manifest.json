@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/kaltak/static/css/main.e6c13ad2.css",
+    "main.js": "/kaltak/static/js/main.a35e1474.js",
+    "static/js/787.4c026eef.chunk.js": "/kaltak/static/js/787.4c026eef.chunk.js",
+    "static/media/loading.gif": "/kaltak/static/media/loading.fdcbdcd0337816a2bc00.gif",
+    "static/media/favicon.png": "/kaltak/static/media/favicon.ea34c67fb697306b70ed.png",
+    "index.html": "/kaltak/index.html",
+    "main.e6c13ad2.css.map": "/kaltak/static/css/main.e6c13ad2.css.map",
+    "main.a35e1474.js.map": "/kaltak/static/js/main.a35e1474.js.map",
+    "787.4c026eef.chunk.js.map": "/kaltak/static/js/787.4c026eef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.a35e1474.js"
+  ]
+}
