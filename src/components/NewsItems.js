@@ -9,7 +9,7 @@ export default class NewsItems extends Component {
     render() {
             let { title, description, imageUrl, author, url, published,name} = this.props;
         return (
-            <div className="card mx-auto my-3 shadow-lg" style={{ width: "20rem" }}>
+            <div className="card mx-auto my-3 shadow-lg" style={{ width: "20rem" }} >
                 <span className='position-absolute transalte-middle badge rounded-pill bg-danger ' style={{right
                 : "10px", top: "-6px"}}><strong>{name}</strong></span>
                 <img src={imageUrl || img} className="card-img-top" height={'200px'}  alt={"Not Available"}/>
