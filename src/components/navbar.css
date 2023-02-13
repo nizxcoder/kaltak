@@ -1,0 +1,14 @@
+.category_btn:hover{
+    color: white;
+}
+
+.category_btn:hover::after{   
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+}
+.ctg-btn{
+    height: 40px;
+}

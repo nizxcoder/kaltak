@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 import NewsItems from "./NewsItems";
 import Spinner from "./Spinner";
+import PropTypes from 'prop-types'
 
 export default class News extends Component {
+    static defaultProps = {
+        country: 'in',
+        category: 'general',
+    }
+    static propTypes = {
+        country: PropTypes.string,
+        category: PropTypes.string,
+    }
+    
     constructor() {
         super();
         this.state = {
@@ -11,57 +21,57 @@ export default class News extends Component {
             pageNo: 1
         }
     }
-
-    async componentDidMount() {
-        let url = `https://newsapi.org/v2/everything?sources=techcrunch&pageSize=12&page=1&apiKey=6cf456e90bda4cb29c7a8f7dd4199a85`;
-        this.setState({loading: true});
+    async updateNews(){
+        const url = `https://newsapi.org/v2/everything?q=${this.props.category}&pageSize=15&page=${this.state.pageNo}&apiKey=dd02afa940f14a03bf97f09aadf8c984`;
+        this.setState({ loading: true });
         let data = await fetch(url);
         let newsData = await data.json();
-        this.setState({articles: newsData.articles,
-        loading: false})
+        this.setState({
+            articles: newsData.articles,
+            loading: false
+        })
+        console.log("up",this.state.pageNo)
     }
-    changePage = async (page) => {
-        if (page > 0) {
-            this.setState({
-                pageNo: this.state.pageNo + 1
-            });
-            let url = `https://newsapi.org/v2/everything?sources=techcrunch&pageSize=15&page=${this.state.pageNo+1}&apiKey=6cf456e90bda4cb29c7a8f7dd4199a85`
-            this.setState({loading: true})
-            let data = await fetch(url);
-            let newsData = await data.json();
-            this.setState({ articles: newsData.articles,
-            loading: false});
-        }
-        else {
-            this.setState({
-                pageNo: this.state.pageNo - 1
-            });
-            let url = `https://newsapi.org/v2/everything?sources=techcrunch&pageSize=15&page=${this.state.pageNo-1}&apiKey=6cf456e90bda4cb29c7a8f7dd4199a85`
-            let data = await fetch(url);
-            let newsData = await data.json();
-            this.setState({ articles: newsData.articles });
-        } 
-        console.log(this.state.pageNo)
+    async componentDidMount() {
+        this.updateNews();
+    }
+    nextPage = async ()=>{
+        this.setState({
+            pageNo: this.state.pageNo + 1,
+            loading: true
+        });
+        setTimeout(()=>{
+            this.updateNews()
+        },300);
+    }
+    prevPage = async()=>{
+        this.setState({
+            pageNo: this.state.pageNo - 1,
+            loading: true
+        });
+        setTimeout(()=>{
+            this.updateNews()
+        },300);
     }
     render() {
         return (
             <div className="container">
                 <div className="mx-3 mt-3 mb-0">
-                    <h2 className="text-center">Top HeadLines - Kal Tak News</h2>
+                    <h2 className="text-center">Top HeadLines - {this.props.category.charAt(0).toUpperCase()+this.props.category.slice(1).replace('+', ' ')}</h2>
                 </div>
-                {this.state.loading && <Spinner/>}
-                {!(this.state.loading)&& <div className="d-flex flex-wrap">
+                {this.state.loading && <Spinner />}
+                {!(this.state.loading) && <div className="d-flex flex-wrap">
                     {
                         this.state.articles.map((element) => {
                             return (
-                                <NewsItems key={element.url} url={element.url} author={element.author.slice(0, 20)} title={element.title.slice(0, 60)} published={element.publishedAt} description={element.description.slice(0, 90)} imageUrl={element.urlToImage} />
+                                <NewsItems key={element.url} url={element.url} name={element.source.name.slice(0, 20)} author={element.author || "Unknown"} title={element.title.slice(0, 60)} published={new Date(element.publishedAt).toGMTString()} description={element.description && element.description.slice(0, 90)} imageUrl={element.urlToImage} />
                             )
                         })
                     }
                     <div className="container d-flex justify-content-around m-4">
-                        <button type="button" className="btn btn-primary" disabled={this.state.pageNo < 2} onClick={() => { this.changePage(0) }}> &larr; Previous</button>
+                        <button type="button" className="btn btn-primary" disabled={this.state.pageNo < 2} onClick={this.prevPage}> &larr; Previous</button>
                         <button type="button" className="btn btn-outline-dark px-5">{this.state.pageNo}</button>
-                        <button disabled={this.state.pageNo > 5} type="button" className="btn btn-primary" onClick={() => { this.changePage(1) }}>Next&rarr;</button>
+                        <button disabled={this.state.pageNo > 5} type="button" className="btn btn-primary" onClick={this.nextPage}>Next &rarr;</button>
                     </div>
                 </div>}
             </div>
