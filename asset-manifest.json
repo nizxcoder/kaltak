@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/kaltak/static/css/main.366724fa.css",
-    "main.js": "/kaltak/static/js/main.8c9fef0c.js",
-    "static/js/787.4c026eef.chunk.js": "/kaltak/static/js/787.4c026eef.chunk.js",
-    "static/media/loading.gif": "/kaltak/static/media/loading.fdcbdcd0337816a2bc00.gif",
-    "static/media/favicon.png": "/kaltak/static/media/favicon.ea34c67fb697306b70ed.png",
-    "static/media/newsImg.jpg": "/kaltak/static/media/newsImg.64f60d960d0cb51c42c8.jpg",
-    "index.html": "/kaltak/index.html",
-    "main.366724fa.css.map": "/kaltak/static/css/main.366724fa.css.map",
-    "main.8c9fef0c.js.map": "/kaltak/static/js/main.8c9fef0c.js.map",
-    "787.4c026eef.chunk.js.map": "/kaltak/static/js/787.4c026eef.chunk.js.map"
+    "main.css": "/nizxcoder.github.io/kaltak/static/css/main.366724fa.css",
+    "main.js": "/nizxcoder.github.io/kaltak/static/js/main.057d3f6d.js",
+    "static/js/787.4c026eef.chunk.js": "/nizxcoder.github.io/kaltak/static/js/787.4c026eef.chunk.js",
+    "static/media/loading.gif": "/nizxcoder.github.io/kaltak/static/media/loading.fdcbdcd0337816a2bc00.gif",
+    "static/media/favicon.png": "/nizxcoder.github.io/kaltak/static/media/favicon.ea34c67fb697306b70ed.png",
+    "static/media/newsImg.jpg": "/nizxcoder.github.io/kaltak/static/media/newsImg.64f60d960d0cb51c42c8.jpg",
+    "index.html": "/nizxcoder.github.io/kaltak/index.html",
+    "main.366724fa.css.map": "/nizxcoder.github.io/kaltak/static/css/main.366724fa.css.map",
+    "main.057d3f6d.js.map": "/nizxcoder.github.io/kaltak/static/js/main.057d3f6d.js.map",
+    "787.4c026eef.chunk.js.map": "/nizxcoder.github.io/kaltak/static/js/787.4c026eef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.366724fa.css",
-    "static/js/main.8c9fef0c.js"
+    "static/js/main.057d3f6d.js"
   ]
 }
