@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/kaltak/static/css/main.366724fa.css",
-    "main.js": "/kaltak/static/js/main.7a03ff66.js",
+    "main.js": "/kaltak/static/js/main.fbb4e111.js",
     "static/js/787.4c026eef.chunk.js": "/kaltak/static/js/787.4c026eef.chunk.js",
     "static/media/loading.gif": "/kaltak/static/media/loading.fdcbdcd0337816a2bc00.gif",
     "static/media/favicon.png": "/kaltak/static/media/favicon.ea34c67fb697306b70ed.png",
     "static/media/newsImg.jpg": "/kaltak/static/media/newsImg.64f60d960d0cb51c42c8.jpg",
     "index.html": "/kaltak/index.html",
     "main.366724fa.css.map": "/kaltak/static/css/main.366724fa.css.map",
-    "main.7a03ff66.js.map": "/kaltak/static/js/main.7a03ff66.js.map",
+    "main.fbb4e111.js.map": "/kaltak/static/js/main.fbb4e111.js.map",
     "787.4c026eef.chunk.js.map": "/kaltak/static/js/787.4c026eef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.366724fa.css",
-    "static/js/main.7a03ff66.js"
+    "static/js/main.fbb4e111.js"
   ]
 }
