@@ -8,7 +8,7 @@ export default class Navbar extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-lg bg-danger">
+                <nav className="navbar navbar-expand-lg bg-warning ">
                     <div className="container-fluid">
                         <a href='/'><img src={logo} alt="#" style={{ "height": "35px", mixBlendMode: "multiply" }} /></a>
                         <strong><a className="navbar-brand mx-2" href="/">Kal-Tak</a></strong>

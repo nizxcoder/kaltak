@@ -2,10 +2,6 @@ import React, { Component } from 'react'
 import img from './newsImg.jpg'
 
 export default class NewsItems extends Component {
-
-    constructor() {
-        super();
-    }
     render() {
             let { title, description, imageUrl, author, url, published,name} = this.props;
         return (

@@ -3,6 +3,7 @@ import NewsItems from "./NewsItems";
 import Spinner from "./Spinner";
 import PropTypes from 'prop-types'
 import InfiniteScroll from 'react-infinite-scroll-component';
+
 export default class News extends Component {
     static defaultProps = {
         country: 'in',
@@ -21,10 +22,11 @@ export default class News extends Component {
             pageNo: 1,
             totalResult: 0
         }
-        document.title = props.category.charAt(0).toUpperCase() + this.props.category.slice(1).replace('+', ' ')+"- Headlines";
+        document.title = props.category.charAt(0).toUpperCase() + this.props.category.slice(1).replace('+', ' ')+" - Top Headlines";
     }
     async updateNews() {
-        const url = `https://newsapi.org/v2/everything?q=${this.props.category}&pageSize=15&page=${this.state.pageNo}&apiKey=37943d7605754e79884301d69b3885b9`;
+        this.props.setProgress(10);
+        const url = `https://newsapi.org/v2/everything?q=${this.props.category}&pageSize=15&page=${this.state.pageNo}&language=en&sortBy=publishedAt&apiKey=37943d7605754e79884301d69b3885b9`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let newsData = await data.json();
@@ -33,12 +35,14 @@ export default class News extends Component {
             loading: false,
             totalResult: newsData.totalResults
         })
+        this.props.setProgress(100);
+
     }
     async componentDidMount() {
         this.updateNews();
     }
     fetchMoreData = async () => {
-        const url = `https://newsapi.org/v2/everything?q=${this.props.category}&pageSize=15&page=${this.state.pageNo+1}&apiKey=37943d7605754e79884301d69b3885b9`;
+        const url = `https://newsapi.org/v2/everything?q=${this.props.category}&pageSize=15&page=${this.state.pageNo+1}&language=en&sortBy=publisheAt&apiKey=37943d7605754e79884301d69b3885b9`;
         this.setState({ loading: true });
         let data = await fetch(url);
         let newsData = await data.json();
@@ -67,7 +71,7 @@ export default class News extends Component {
                         {
                             this.state.articles.map((element) => {
                                 return (
-                                    <NewsItems key={element.url} url={element.url} name={element.source.name.slice(0, 20)} author={element.author || "Unknown"} title={element.title.slice(0, 60)} published={new Date(element.publishedAt).toGMTString()} description={element.description && element.description.slice(0, 90)} imageUrl={element.urlToImage} />
+                                    <NewsItems key={element.url} url={element.url} name={element.source.name.slice(0, 20)} author={(element.author && element.author.slice(0,20)) || "Unknown"} title={element.title.slice(0, 60)} published={new Date(element.publishedAt).toGMTString()} description={element.description && element.description.slice(0, 90)} imageUrl={element.urlToImage} />
                                 )
                             })
                         }
